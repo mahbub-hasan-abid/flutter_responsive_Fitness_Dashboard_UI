@@ -1,3 +1,4 @@
+import 'package:fitness_dashboard/constant/constant.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -5,8 +6,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: TextField(
+    return TextField(
       decoration: InputDecoration(
         hintText: 'Search',
         prefixIcon: Icon(Icons.search),
@@ -15,8 +15,8 @@ class Header extends StatelessWidget {
           borderSide: BorderSide.none,
         ),
         filled: true,
-        fillColor: Colors.grey[200],
+        fillColor: cardBackgroundColor,
       ),
-    ));
+    );
   }
 }

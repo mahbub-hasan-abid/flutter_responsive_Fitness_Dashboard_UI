@@ -22,7 +22,12 @@ class _MainScreenState extends State<MainScreen> {
             child: Container(
               child: SideMenu(),
             )),
-        Expanded(flex: 7, child: DashBoard()),
+        Expanded(
+            flex: 7,
+            child: Container(
+              //color: Colors.amber,
+              child: DashBoard(),
+            )),
         Expanded(
             flex: 3,
             child: Container(

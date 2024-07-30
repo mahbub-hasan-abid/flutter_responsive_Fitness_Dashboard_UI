@@ -1,3 +1,4 @@
+import 'package:fitness_dashboard/utils/dashboard_utils/activity_details.dart';
 import 'package:fitness_dashboard/utils/dashboard_utils/header.dart';
 import 'package:flutter/material.dart';
 
@@ -6,15 +7,21 @@ class DashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Column(
-      children: [
-        SizedBox(
-          height: 18,
-        ),
-        Header(),
-        Text('data')
-      ],
-    ));
+    return Container(
+      //width: 300,
+      child: SingleChildScrollView(
+          child: Column(
+        children: [
+          SizedBox(
+            height: 18,
+          ),
+          Header(),
+          SizedBox(
+            height: 18,
+          ),
+          ActivityDetails(),
+        ],
+      )),
+    );
   }
 }
