@@ -25,29 +25,28 @@ class ActivityDetails extends StatelessWidget {
             children: [
               Image.asset(
                 activityData.activityData[index].icon,
-                width: 30,
-                height: 30,
+                width: 40,
+                height: 40,
               ),
-              Image.asset('assets/icons/profile.jpg')
-              // Padding(
-              //   padding: const EdgeInsets.only(top: 15, bottom: 4),
-              //   child: Text(
-              //     healthDetails.healthData[index].value,
-              //     style: const TextStyle(
-              //       fontSize: 18,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.w600,
-              //     ),
-              //   ),
-              // ),
-              // Text(
-              //   healthDetails.healthData[index].title,
-              //   style: const TextStyle(
-              //     fontSize: 13,
-              //     color: Colors.grey,
-              //     fontWeight: FontWeight.normal,
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15, bottom: 4),
+                child: Text(
+                  activityData.activityData[index].value,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Text(
+                activityData.activityData[index].title,
+                style: const TextStyle(
+                  fontSize: 13,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
             ],
           ),
         );

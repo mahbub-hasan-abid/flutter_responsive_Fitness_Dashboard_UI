@@ -1,5 +1,6 @@
 import 'package:fitness_dashboard/utils/dash_board.dart';
 import 'package:fitness_dashboard/utils/side_menu.dart';
+import 'package:fitness_dashboard/utils/summary_part.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -28,11 +29,7 @@ class _MainScreenState extends State<MainScreen> {
               //color: Colors.amber,
               child: DashBoard(),
             )),
-        Expanded(
-            flex: 3,
-            child: Container(
-              color: Colors.blue,
-            )),
+        const Expanded(flex: 3, child: SummaryWidget()),
       ],
     )));
   }
