@@ -1,5 +1,6 @@
 import 'package:fitness_dashboard/data/activity_details.dart';
 import 'package:fitness_dashboard/utils/dashboard_utils/custome_cards.dart';
+import 'package:fitness_dashboard/utils/reponsive.dart';
 import 'package:flutter/material.dart';
 
 class ActivityDetails extends StatelessWidget {
@@ -11,10 +12,11 @@ class ActivityDetails extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: ScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: Responsive.isMobile(context) ? 2 : 4,
         crossAxisSpacing: 15,
         mainAxisSpacing: 12,
+        // childAspectRatio: 6 / 4,
       ),
       itemCount: activityData.activityData.length,
       itemBuilder: (BuildContext context, int index) {
@@ -29,11 +31,11 @@ class ActivityDetails extends StatelessWidget {
                 height: 40,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15, bottom: 4),
+                padding: const EdgeInsets.only(top: 10, bottom: 4),
                 child: Text(
                   activityData.activityData[index].value,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                   ),
@@ -42,7 +44,7 @@ class ActivityDetails extends StatelessWidget {
               Text(
                 activityData.activityData[index].title,
                 style: const TextStyle(
-                  fontSize: 13,
+                  fontSize: 11,
                   color: Colors.grey,
                   fontWeight: FontWeight.normal,
                 ),

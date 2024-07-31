@@ -1,10 +1,9 @@
 import 'package:fitness_dashboard/constant/constant.dart';
 import 'package:fitness_dashboard/data/side_menu_data.dart';
-import 'package:fitness_dashboard/models/menu_model.dart';
 import 'package:flutter/material.dart';
 
 class SideMenu extends StatefulWidget {
-  SideMenu({super.key});
+  const SideMenu({super.key});
 
   @override
   State<SideMenu> createState() => _SideMenuState();
@@ -16,31 +15,32 @@ class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
     final data = SideMenuData();
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 10),
-      child: Container(
-        child: ListView.builder(
-          itemCount: data.menu.length,
-          itemBuilder: (BuildContext context, int index) {
-            return buildMenuBar(data, index);
-          },
-        ),
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+      color: const Color(0xFF171821),
+      child: ListView.builder(
+        itemCount: data.menu.length,
+        itemBuilder: (context, index) => buildMenuEntry(data, index),
       ),
     );
   }
 
-  Widget buildMenuBar(SideMenuData data, int index) {
-    bool isSelected = selectedIndex == index;
+  Widget buildMenuEntry(SideMenuData data, int index) {
+    final isSelected = selectedIndex == index;
+
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-          color: isSelected ? selectionColor : Colors.transparent,
-          borderRadius: BorderRadius.circular(6)),
-      child: GestureDetector(
-        onTap: () {
+        borderRadius: const BorderRadius.all(
+          Radius.circular(6.0),
+        ),
+        color: isSelected ? selectionColor : Colors.transparent,
+      ),
+      child: InkWell(
+        onTap: () => setState(() {
           selectedIndex = index;
-          setState(() {});
-        },
+        }),
         child: Row(
           children: [
             Padding(
@@ -50,12 +50,14 @@ class _SideMenuState extends State<SideMenu> {
                 color: isSelected ? Colors.black : Colors.grey,
               ),
             ),
-            Text(data.menu[index].title,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                  color: isSelected ? Colors.black : Colors.grey,
-                )),
+            Text(
+              data.menu[index].title,
+              style: TextStyle(
+                fontSize: 16,
+                color: isSelected ? Colors.black : Colors.grey,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+              ),
+            )
           ],
         ),
       ),
